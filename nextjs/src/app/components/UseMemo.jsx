@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useMemo, useState } from "react";
 
 const factorial = (num) => {
@@ -29,6 +30,7 @@ const UseMemo = () => {
         >
           Increase Counter: {count}
         </button>
+        <Link href="/posts">Posts</Link>
       </div>
       <div className="mt-5">
         Factorial of {num} is: {memoizedFactorial}
