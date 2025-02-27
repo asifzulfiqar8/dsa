@@ -4,10 +4,13 @@
   "description": "Learning DSA",
   "main": "index.js",
   "scripts": {
-    "start":"node index.js",
-    "dev":"nodemon index.js",
+    "start": "node index.js",
+    "dev": "concurrently \"nodemon index.js\" \"nodemon dsa.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Asif Zulfiqar",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
 }

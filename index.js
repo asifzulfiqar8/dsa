@@ -4,8 +4,30 @@ const counter = () => {
   let count = 0;
 
   return {
-    increament: () => {},
-    decrement: () => {},
-    increament: () => {},
+    increament: () => {
+      count++;
+      return count;
+    },
+    decrement: () => {
+      count--;
+      return count;
+    },
+    reset: () => {
+      count = 0;
+      return count;
+    },
+    getCount: () => {
+      return count;
+    },
   };
 };
+
+const myCounter = counter();
+// myCounter.increament();
+// myCounter.increament();
+// myCounter.increament();
+// myCounter.reset();
+// myCounter.decrement();
+// myCounter.increament();
+// myCounter.increament();
+// console.log(myCounter.getCount());
