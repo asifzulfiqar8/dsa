@@ -25,9 +25,25 @@ const counter = () => {
 const myCounter = counter();
 // myCounter.increament();
 // myCounter.increament();
-// myCounter.increament();
-// myCounter.reset();
-// myCounter.decrement();
-// myCounter.increament();
-// myCounter.increament();
 // console.log(myCounter.getCount());
+
+// JS Debouncing function
+const debounce = (func, delay) => {
+  let timeoutId;
+
+  return (...args) => {
+    clearTimeout(timeoutId);
+
+    timeoutId = setTimeout(() => {
+      func(...args);
+    }, delay);
+  };
+};
+
+const logMessage = (text) => console.log(text);
+
+const debounceLog = debounce(logMessage, 5000);
+
+debounceLog("first");
+debounceLog("second");
+debounceLog("third");
