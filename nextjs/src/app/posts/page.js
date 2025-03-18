@@ -9,11 +9,11 @@ async function getPosts() {
 }
 
 export default async function Posts() {
-  const repo = await getPosts();
+  const posts = await getPosts();
 
   return (
     <main>
-      <Post posts={repo} />
+      <Post posts={posts} />
     </main>
   );
 }
