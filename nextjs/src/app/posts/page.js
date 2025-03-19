@@ -1,4 +1,4 @@
-import Post from "../components/Post";
+import Post from "@/components/Post";
 
 async function getPosts() {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");

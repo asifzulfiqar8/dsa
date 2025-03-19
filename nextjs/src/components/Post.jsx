@@ -1,10 +1,12 @@
+import Link from "next/link";
+
 const Post = ({ posts }) => {
-  const listedPosts = posts.slice(0, 8);
   return (
     <div className="container mx-auto py-20 px-4">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-        {listedPosts?.map((post, i) => (
-          <div
+        {posts?.slice(0, 8).map((post, i) => (
+          <Link
+            href={`/posts/details/${post.id}`}
             key={i}
             className="flex flex-col items-center gap-4 border rounded-lg p-4"
           >
@@ -14,7 +16,7 @@ const Post = ({ posts }) => {
             <p className="text-sm text-black capitalize text-center">
               {post?.body}
             </p>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
