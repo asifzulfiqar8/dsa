@@ -27,23 +27,51 @@
 // myCounter.increament();
 // console.log(myCounter.getCount());
 
-// JS Debouncing function
-const debounce = (func, delay) => {
-  let timeoutId;
+// <<< ---------------------- >>>
 
-  return (...args) => {
-    clearTimeout(timeoutId);
+// // JS Debouncing function
+// const debounce = (func, delay) => {
+//   let timeoutId;
 
-    timeoutId = setTimeout(() => {
+//   return (...args) => {
+//     // clear the previous timeout from memory
+//     clearTimeout(timeoutId);
+//     timeoutId = setTimeout(() => {
+//       func(...args);
+//     }, delay);
+//   };
+// };
+
+// const logMessage = (text) => console.log(text);
+
+// const debounceLog = debounce(logMessage, 2000);
+
+// debounceLog("debounce");
+
+// <<< ---------------------- >>>
+// Throttling Function
+function throttle(func, delay) {
+  let flag = false;
+
+  return function (...args) {
+    if (!flag) {
       func(...args);
-    }, delay);
+      flag = true;
+
+      setTimeout(() => {
+        flag = false;
+      }, delay);
+    }
   };
-};
+}
 
 const logMessage = (text) => console.log(text);
+const throttLog = throttle(logMessage, 2000);
 
-const debounceLog = debounce(logMessage, 5000);
+throttLog("Hello Asif");
+throttLog("Hello again Asif");
+setTimeout(() => {
+  throttLog("Hello once again Asif");
+}, 3000);
 
-// debounceLog("first");
-// debounceLog("second");
-// debounceLog("third");
+// <<< ---------------------- >>>

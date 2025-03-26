@@ -24,13 +24,6 @@ const useLocalStorage = (key, initialValue) => {
     }
   };
 
-  useEffect(() => {
-    const stored = localStorage.getItem(key);
-    if (stored !== null) {
-      setStoredValue(JSON.parse(stored));
-    }
-  }, [key]);
-
   return [storedValue, setValue];
 };
 
